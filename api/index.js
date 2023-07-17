@@ -7,6 +7,8 @@ const compression = require('compression');
 const cookieParser = require('cookie-parser');
 const fallback = require('express-history-api-fallback');
 
+// const cache = require('express-cache-headers');
+// const cache1 = require('express-cache-ctrl');
 const { name, version } = require('../package.json');
 const logger = require('./libs/logger');
 
@@ -20,6 +22,7 @@ app.use(cors());
 
 const router = express.Router();
 router.use('/api', require('./routes'));
+
 app.use(router);
 
 const isProduction = process.env.NODE_ENV === 'production' || process.env.ABT_NODE_SERVICE_ENV === 'production';
